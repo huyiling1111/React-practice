@@ -5,7 +5,7 @@ console.log(window.ReactDOM.render);
 
 const React = window.React;
 const ReactDOM = window.ReactDOM;
-
+//js写法
 let n = 0;
 const App = () =>
     React.createElement("div", null, [
@@ -26,7 +26,7 @@ const App = () =>
 ReactDOM.render(App(), document.querySelector("#app"));
 
 
-// 等价于
+// 等价于函数式组件写法
 
 import ReactDOM from 'react-dom';
 import React from 'react'
@@ -44,6 +44,31 @@ const render = () => ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
+
+// 等价于类组件写法
+
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = { n: 1 }
+    }
+    add() {
+        this.setState({ n: this.state.n + 1 })
+    }
+    render() {
+        return (
+            <div className="App" >
+                <button onClick={() => { this.add() }}
+
+                >
+                    +1
+                </button>
+                {this.state.n}
+            </ div>
+        );
+    }
+}
+
 
 
 export default App
