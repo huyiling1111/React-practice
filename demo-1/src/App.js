@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 const App = () => {
     return (<div>App组件
         <Component numbers={[1, 2, 3]} />
@@ -14,3 +14,6 @@ const Component = (props) => {
     return <div>{array}</div>
 
 }
+
+
+export default App
