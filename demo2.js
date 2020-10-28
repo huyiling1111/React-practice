@@ -28,22 +28,22 @@ ReactDOM.render(App(), document.querySelector("#app"));
 
 // 等价于
 
-import React, { useState } from 'react';
-
-function App() {
-
-    const [n, setn] = useState(0);
-
+import ReactDOM from 'react-dom';
+import React from 'react'
+let n = 1
+const App = () => {
     return (
-        <div className='container'>
-            {n}
-            <div className='btn'>
-                <button onClick={() => setn(n + 1)}>+1</button>
-
-                <button onClick={() => setn(n - 1)}>-1</button>
-            </div >
-        </div>
-    );
+        <div>{n}<button onClick={() => {
+            n += 1
+            render()
+        }} >+1</button>  </div>
+    )
 }
 
-export default App;
+const render = () => ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+);
+
+
+export default App
